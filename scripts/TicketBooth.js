@@ -5,6 +5,9 @@ export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">
             <button id="rideTicket">Ride Ticket</button>
+            <button id="foodTicket">Food Ticket</button>
+            <button id="gameTicket">Game Ticket</button>
+            <button id="sideshowTicket">Sideshow Ticket</button>
         </div>
     `
 }
@@ -21,6 +24,43 @@ eventHub.addEventListener("click", (clickEvent) => {
         eventHub.dispatchEvent(rideEvent)
     }
 })
+// o0o0o0o0o0o0o0o0o0o0o0oo0o0o00o0oo0o00oo0o0o0o00o0o0o0o0o0o0o
+eventHub.addEventListener("click", (clickEvent) => {
+    if (clickEvent.target.id === "foodTicket") {
+        const foodEvent = new CustomEvent("foodTicketPurchased", {
+            detail: {
+                ticketsPurchased: event.target.value
+            }
+        })
+        console.log("food ticket button has been clicked!")
+        eventHub.dispatchEvent(foodEvent)
+    }
+})
+// o0o0o0o0o0o0o0o0o0o0o0o00oo0o0o00oo00o0o0o0oo0o00o0o0o0o0oo0
+eventHub.addEventListener("click", (clickEvent) => {
+    if (clickEvent.target.id === "gameTicket") {
+        const gameEvent = new CustomEvent("gameTicketPurchased", {
+            detail: {
+                ticketsPurchased: event.target.value
+            }
+        })
+        console.log("games ticket button has been clicked!")
+        eventHub.dispatchEvent(gameEvent)
+    }
+})
+// o0o0o0o0o0o0o0o0o0o0o0o00oo0o0o00oo00o0o0o0oo0o00o0o0o0o0oo0
+eventHub.addEventListener("click", (clickEvent) => {
+    if (clickEvent.target.id === "sideshowTicket") {
+        const sideshowEvent = new CustomEvent("sideshowTicketPurchased", {
+            detail: {
+                ticketsPurchased: event.target.value
+            }
+        })
+        console.log("sideshow ticket button has been clicked!")
+        eventHub.dispatchEvent(sideshowEvent)
+    }
+})
+// o0o0o0o0o0o0o0o0o0o0o0o00oo0o0o00oo00o0o0o0oo0o00o0o0o0o0oo0
 
 
 // In the TicketBooth.js component, add the following 
