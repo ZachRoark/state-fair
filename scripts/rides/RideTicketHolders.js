@@ -6,16 +6,22 @@ const eventHub = document.querySelector("#state-fair");
 // event listener outside the function so as to call said function.
 // dingus's get shamed for dumb things so it doesn't happen again.
 
-eventHub.addEventListener("rideTicketPurchased", clickEvent => {
-    RideTicketHolders();
-})
+// I'm a double dingus because i tried completely separating the event listener
+// and the function, causing the function to immediately get called and render
+// to the DOM when imported to main.js. 
+// Terra saved me, remind me to bake her a paleo cake, so like, meatloaf or
+// a steak with kale on it or something.
 
 export const RideTicketHolders = () => {
-    contentTarget.innerHTML += `
-        <div class="person rider">
-        </div>
-    `
+    eventHub.addEventListener("rideTicketPurchased", clickEvent => {
+        return contentTarget.innerHTML += `
+            <div class="person rider">
+            </div>
+        `
+    }) 
 }
+
+
 
 // Open the RideTicketHolder component file.
 
